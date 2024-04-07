@@ -45,6 +45,9 @@ jobs:
       - name: Test
         run: npm run test
 
+      - name: Show ENV
+        run: env
+
       - name: Execute Pterodactyl Power Action
         uses: D3OXY/pterodactyl-power@V1
         with:
