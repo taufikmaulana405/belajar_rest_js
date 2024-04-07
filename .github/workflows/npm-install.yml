@@ -46,7 +46,7 @@ jobs:
         run: npm run test
 
       - name: Show ENV from vars
-        run: echo ${{ vars.PESAN }}
+        run: echo ${{ secrets.PTERO_URL }}
 
       - name: Execute Pterodactyl Power Action
         uses: D3OXY/pterodactyl-power@V1
