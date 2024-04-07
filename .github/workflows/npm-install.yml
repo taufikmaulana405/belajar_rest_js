@@ -46,12 +46,20 @@ jobs:
         run: npm run test
 
       - name: Show ENV from vars
-        run: echo ${{ secrets.PTERO_URL }}
-
+        env:
+          PTERO_URL: ${{ secrets.PTERO_URL }}
+          PTERO_USER_KEY: ${{ secrets.PTERO_USER_KEY }}
+          PTERO_SERVER_UUID_SHORT: ${{ secrets.PTERO_SERVER_UUID_SHORT }}
+        run: echo $PTERO_URL $PTERO_USER_KEY $PTERO_SERVER_UUID_SHORT
+          
       - name: Execute Pterodactyl Power Action
+        env:
+          PTERO_URL: ${{ secrets.PTERO_URL }}
+          PTERO_USER_KEY: ${{ secrets.PTERO_USER_KEY }}
+          PTERO_SERVER_UUID_SHORT: ${{ secrets.PTERO_SERVER_UUID_SHORT }}
         uses: D3OXY/pterodactyl-power@V1
         with:
-            PANEL_URL: ${{ secrets.PTERO_URL }}
-            API_KEY: ${{ secrets.PTERO_USER_KEY }}
-            SERVER_ID: ${{ secrets.PTERO_SERVER_UUID_SHORT }}
+            PANEL_URL: ${{ env.PTERO_URL }}
+            API_KEY: ${{ env.PTERO_USER_KEY }}
+            SERVER_ID: ${{ env.PTERO_SERVER_UUID_SHORT }}
             POWER_ACTION: "RESTART" # You can change this to "STOP," "RESTART," or "KILL" as needed
