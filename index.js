@@ -5,8 +5,8 @@ process.env.NODE_ENV = process.env.NODE_ENV || "development";
 process.env.NODE_PATH = __dirname;
 
 // Inisialasi Konfigurasi Server
-const ip_bind = process.env.IP_BIND || "0.0.0.0";
-const port = process.env.PORT || 3005;
+const ip_bind = process.env.SERVER_IP_BIND || "0.0.0.0";
+const port = process.env.SERVER_PORT || 3005;
 
 // Inisialasi Library
 const express = require("express");
