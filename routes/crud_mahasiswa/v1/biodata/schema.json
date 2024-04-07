@@ -1,0 +1,32 @@
+{
+    "type": "object",
+    "required": [
+        "nama",
+        "nim",
+        "email",
+        "fakultas",
+        "prodi"
+    ],
+    "properties": {
+        "nama": {
+            "type": "string",
+            "maxLength": 256
+        },
+        "nim": {
+            "type": "number",
+            "maximum": 999999999999
+        },
+        "email": {
+            "type": "string",
+            "maxLength": 256
+        },
+        "fakultas": {
+            "type": "string",
+            "maxLength": 256
+        },
+        "prodi": {
+            "type": "string",
+            "maxLength": 256
+        }
+    }
+}

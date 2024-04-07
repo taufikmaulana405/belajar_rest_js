@@ -1,0 +1,32 @@
+{
+  "name": "belajar_rest_js",
+  "version": "1.0.0",
+  "description": "Nyoba buat rest api pake js",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "lint": "eslint .",
+    "test": "echo \"Error: Ga ada tes\""
+  },
+  "keywords": [
+    "crud",
+    "mahasiswa"
+  ],
+  "author": "taufikmaulana405",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@stylistic/eslint-plugin": "^1.7.0",
+    "eslint": "^8.57.0"
+  },
+  "dependencies": {
+    "compression": "^1.7.4",
+    "dotenv": "^16.4.5",
+    "errorhandler": "^1.5.1",
+    "express": "^4.19.2",
+    "express-json-validator-middleware": "^3.0.1",
+    "mariadb": "^3.3.0",
+    "morgan": "^1.10.0",
+    "response-time": "^2.3.2",
+    "swagger-ui-express": "^5.0.0"
+  }
+}

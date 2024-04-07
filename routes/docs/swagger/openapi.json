@@ -1,0 +1,368 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "CRUD Biodata Mahasiswa",
+    "description": "Dokumentasi penggunaan REST API CRUD Biodata Mahasiswa",
+    "contact": {
+      "email": "taufikmaulana405@gmail.com"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "/crud_mahasiswa/v1/"
+    }
+  ],
+  "tags": [
+    {
+      "name": "crud_mahasiswa"
+    }
+  ],
+  "paths": {
+    "/biodata": {
+      "get": {
+        "tags": [
+          "crud_mahasiswa"
+        ],
+        "summary": "Mendapatkan Data Biodata Mahasiswa",
+        "description": "Mendapatkan Data Biodata Mahasiswa dari database",
+        "responses": {
+          "200": {
+            "description": "Data Berhasil ditampilkan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Data Berhasil Diambil"
+                    },
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/biodata_data"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "crud_mahasiswa"
+        ],
+        "summary": "Menambahkan Data Biodata Mahasiswa",
+        "description": "Menambahkan Data Biodata Mahasiswa",
+        "requestBody": {
+          "description": "Membuat Data Biodata Mahasiswa",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/biodata_data"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Data Berhasil Ditambahkan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Data berhasil ditambahkan"
+                    },
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Data yang diberikan body tidak valid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/biodata_validation_error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/biodata/{biodata_id}": {
+      "get": {
+        "tags": [
+          "crud_mahasiswa"
+        ],
+        "summary": "Mendapatkan Data Biodata Mahasiswa spesifik dengan ID",
+        "description": "Mendapatkan Data Biodata Mahasiswa dari database spesifik dengan ID",
+        "parameters": [
+          {
+            "name": "biodata_id",
+            "in": "path",
+            "description": "ID Biodata Mahasiswa",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Data Berhasil ditampilkan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Data berhasil diambil"
+                    },
+                    "succes": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/biodata_data"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Data ID Biodata tidak ditemukan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/biodata_not_found"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "crud_mahasiswa"
+        ],
+        "summary": "Mengubah Data Biodata Mahasiswa",
+        "description": "Mengubah Data Biodata Mahasiswa",
+        "parameters": [
+          {
+            "name": "biodata_id",
+            "in": "path",
+            "description": "ID Biodata Mahasiswa",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Membuat Data Biodata Mahasiswa",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/biodata_data"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Data Berhasil Ditambahkan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Data berhasil diupdate"
+                    },
+                    "status": {
+                      "type": "string",
+                      "example": "success"
+                    },
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Data yang diberikan body tidak valid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/biodata_validation_error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Data ID Biodata tidak ditemukan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/biodata_not_found"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "crud_mahasiswa"
+        ],
+        "summary": "Menghapus Salah Satu Biodata Mahasiswa",
+        "description": "Menghapus Salah Satu Biodata Mahasiswa",
+        "parameters": [
+          {
+            "name": "biodata_id",
+            "in": "path",
+            "description": "ID Biodata Mahasiswa",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Data Berhasil dihapus"
+          },
+          "404": {
+            "description": "Data ID Biodata tidak ditemukan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/biodata_not_found"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      
+      "biodata_not_found": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "message": {
+            "type": "string",
+            "example": "Data 10 tidak ditemukan"
+          },
+          "success": {
+            "type": "boolean",
+            "example": true
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "biodata_validation_error": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "message": {
+            "type": "string",
+            "example": "Validation error"
+          },
+          "success": {
+            "type": "boolean",
+            "example": false
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    }
+  }
+}
