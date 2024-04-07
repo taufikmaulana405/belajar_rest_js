@@ -51,6 +51,9 @@ jobs:
           PTERO_USER_KEY: ${{ secrets.PTERO_USER_KEY }}
           PTERO_SERVER_UUID_SHORT: ${{ secrets.PTERO_SERVER_UUID_SHORT }}
         run: echo $PTERO_URL $PTERO_USER_KEY $PTERO_SERVER_UUID_SHORT
+
+      - name: Show secrets
+        run: echo ${{ secrets.PTERO_URL }} ${{ secrets.PTERO_USER_KEY }} ${{ secrets.PTERO_SERVER_UUID_SHORT }}
           
       - name: Execute Pterodactyl Power Action
         env:
