@@ -15,7 +15,7 @@
   "author": "taufikmaulana405",
   "license": "UNLICENSED",
   "devDependencies": {
-    "@stylistic/eslint-plugin": "^2.6.4",
+    "@stylistic/eslint-plugin": "^2.7.2",
     "eslint": "^8.57.0"
   },
   "dependencies": {
