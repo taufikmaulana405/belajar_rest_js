@@ -1,5 +1,7 @@
 # Belajar Rest JS
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b150604dd8bd4479bd46d26c1c6ba6a1)](https://app.codacy.com/gh/taufikmaulana405/belajar_rest_js?utm_source=github.com&utm_medium=referral&utm_content=taufikmaulana405/belajar_rest_js&utm_campaign=Badge_Grade)
+
 This is a simple REST API built with JavaScript. The project is named "belajar_rest_js", which means "learn rest js" in English.
 
 ## Description
