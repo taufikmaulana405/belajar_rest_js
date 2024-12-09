@@ -19,7 +19,7 @@
     "eslint": "^8.57.0"
   },
   "dependencies": {
-    "compression": "^1.7.4",
+    "compression": "^1.7.5",
     "dotenv": "^16.4.5",
     "errorhandler": "^1.5.1",
     "express": "^4.21.2",
